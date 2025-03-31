@@ -14,9 +14,16 @@
 // Returns: A boolean value. True for palindromes, false otherwise.
 bool is_palindrome(std::string str){
 
-    // Write your code here
+    std::transform(str.begin(), str.end(), str.begin(),tolower);
+    std::string rev = str;
+    std::reverse(str.begin(), str.end());
 
-    return false;
+    if (str == rev) {
+        return true;
+    }
+    else{
+        return false;
+    }
 }
 
 // Main function
@@ -25,5 +32,6 @@ int main(){
     std::cout << "Enter a string: " << std::flush;
     std::getline(std::cin,s);
     std::cout << "\n\"" << s << (is_palindrome(s) ? "\" is" : "\" is not" ) << " a palindrome.\n\n";
+    std::cout << s;
     return 0;
 }
